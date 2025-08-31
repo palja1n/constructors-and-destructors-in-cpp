@@ -71,6 +71,10 @@ A **destructor** has the same name as the class, **preceded by a tilde (~)**.
 It takes no arguments and returns no value.  
 There’s only one destructor per class—no overloading.  
 It handles cleanup tasks so resources don't leak.  
+A destructor has the same name as the class, but it is preceded by a tilde (~) symbol.  
+It does not return any value and does not take parameters.  
+A class can have only one destructor (no overloading allowed).  
+It is called automatically by the compiler in the reverse order of object creation (last created object is destroyed first).  
 
 ```cpp
 class Example {
