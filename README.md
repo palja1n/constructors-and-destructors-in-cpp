@@ -105,7 +105,7 @@ public:
 
 ***
 
-## Employee Information Program
+## Employee Information Program (Constructor defined inside class)
 
 This example demonstrates how constructors and encapsulation operate together in C++.  
 The `Employee` class holds attributes such as name, admit number, subdivision, projects, and salary.  
@@ -170,78 +170,101 @@ The approach still upholds essential OOP concepts such as encapsulation, abstrac
 
 ## 3. Parameterized Constructor Example
 
-This example highlights why constructors with parameters are useful.  
-A `Practice` class with members `a` and `b` uses a parameterized constructor to set values at the time of object creation, and has a display function to output those values.
-
 **Theory:**  
 - Parameterized constructors accept values up front, so each object can have different starting data.  
 - Data members remain private and are set internally by the constructor.  
 - This approach leads to concise and reliable object setup.
 
+**Logic:**  
+
+This program illustrates the use of parameterized constructors where values are provided at the time of object creation.  
+The `Product` class receives `P_ID`, `Name`, `Category`, and `Price` as parameters and stores them internally.  
+A `display()` function is used to output the product’s information.
+
 **Algorithm:**  
+
 1. Begin  
-2. Define a class (e.g., `Practice`) with data members:  
-   - a (int)  
-   - b (int)  
-3. Define a constructor that takes two parameters and assigns them to `a` and `b`.  
-4. Write a public `display` function to print both members.  
-5. In the main part:  
-   - Create the object with specific values (e.g., `Practice p(1, 2)`)  
-   - Call `display` to show the contents  
+2. Define a `Product` class with data members:  
+   - `P_ID`  
+   - `Name`  
+   - `Category`  
+   - `Price`  
+3. Implement a parameterized constructor that initializes these members with the provided arguments.  
+4. Create a public `display()` function to print all product details.  
+5. In the `main()` function:  
+   - Instantiate a `Product` object by passing appropriate values.  
+   - Invoke the `display()` function to show the product information.  
 6. End  
 
 ***
 
-## 4. Copy Constructor
+## 4. Copy Constructor Program (Example 1)
 
 **Theory:**  
-- The parameterized constructor initializes each member variable with specific values upon object creation.  
-- The copy constructor takes a reference to an existing object of the same class and copies each data member to the new object.  
-- This is especially useful when objects are assigned, passed by value, or returned from functions.
+- The parameterized constructor initializes each data member with specific values at the time of object creation.  
+- The copy constructor accepts a reference to another object of the `Employee` class and duplicates all data members into the new object.
 
 **Algorithm:**  
 1. Begin  
 2. Define an `Employee` class with the following data members:  
-   - `name` (string)  
-   - `admitnumber` (int)  
-   - `subdivision` (char)  
-   - `projects` (int)  
-   - `salary` (double)  
-3. Implement a parameterized constructor that initializes all members with given values.  
+   - `Emp_ID` (int)  
+   - `Name` (string)  
+   - `Department` (string)  
+   - `Salary` (double)  
+3. Create a parameterized constructor that initializes these members with provided values.  
 4. Implement a copy constructor that:  
    - Takes a reference to another `Employee` object  
-   - Copies each data member from the passed object into the new one  
-   - Optionally displays a message indicating the copy constructor was invoked  
-5. Define a `display` function to output all the employee’s information.  
+   - Copies each data member from the passed object to the new one  
+   - Optionally, displays a message indicating that the copy constructor was called  
+5. Define a `display` function to print all employee details.  
 6. In the `main()` function:  
-   - Create an employee object using the parameterized constructor and display its details  
-   - Create another employee object as a copy of the first, invoking the copy constructor, and display its details  
+   - Instantiate an `Employee` object using the parameterized constructor and display its details  
+   - Create another `Employee` object as a copy of the first, which calls the copy constructor, and display its details  
+7. End  
+
+
+***
+
+## 5. Copy Constructor Program (Example 2)
+
+**Theory:**  
+- The parameterized constructor sets each member variable with specific values when a bike object is created.  
+- The copy constructor receives a reference to another `Bike` object and duplicates all data members to the new instance.
+
+**Algorithm:**  
+1. Begin  
+2. Define a `Bike` class with these data members:  
+   - `Bike_ID` (int)  
+   - `Model` (string)  
+   - `Brand` (string)  
+   - `Price` (double)  
+3. Implement a parameterized constructor that initializes all data members using given arguments.  
+4. Implement a copy constructor that:  
+   - Accepts a reference to another `Bike` object  
+   - Copies all member variables from the passed object into the new object  
+   - Optionally, prints a message indicating the copy constructor was triggered  
+5. Define a `display` function to output all bike details.  
+6. In the `main()` function:  
+   - Create a `Bike` object using the parameterized constructor and display its information  
+   - Create a second `Bike` object by copying the first, which calls the copy constructor, then display its information  
 7. End  
 
 ***
 
-## 5. Destructor Program (Object Lifecycle)
+## 6. Destructor Programs
 
-This example shows how constructors and destructors interact with object creation and destruction.  
-A global counter tracks the number of objects in existence.
+**Logic:**
+Demonstrates the use of destructors to track object lifecycle. A global counter keeps count of objects created and destroyed. When objects go out of scope, the destructor is invoked automatically
 
-**Theory:**  
-- The constructor is called each time an object is made, increasing the count.  
-- The destructor runs automatically for out-of-scope or deleted objects, decreasing the count.  
-- Demonstrates resource tracking and automatic cleanup.
-
-**Algorithm:**  
-1. Begin  
-2. Set a global variable `count` to zero  
-3. Define a class (e.g., `destruct`) that contains:  
-   - a constructor that increases `count` and prints the number of objects created  
-   - a destructor that decreases `count` and prints number of objects destroyed  
-4. In the main scope:  
-   - Create three objects (constructor runs and updates count for each)  
-   - Introduce an inner scope/block and make a fourth object  
-   - When the block ends, observe the destructor only runs for that object  
-   - At program end, destructors for the three original objects are called  
-5. End  
+**Algorithm:**
+1. Start  
+2. Initialize a global variable count = 0.  
+3. Create a class House with:  
+Constructor → increments count and prints message.  
+Destructor → decrements count and prints message.  
+4. In main(), create multiple objects, including one inside a local block.  
+5. Observe creation and destruction messages in sequence.  
+6. End 
 
 
 ***
